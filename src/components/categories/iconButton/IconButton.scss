@@ -1,0 +1,22 @@
+@import "src/scss/custom";
+
+.icon-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: white;
+
+  @include responsive('xl') {
+    width: 64px;
+    height: 64px;
+  }
+
+  & > img {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -1,0 +1,35 @@
+@keyframes swing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.pendulum {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  gap: 2px;
+}
+
+.pendulum-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pendulum-ball {
+  width: 20px;
+  height: 20px;
+  background: #FF0000;
+  border-radius: 50%;
+
+  &.ball-1 { animation: swing .5s ease-in-out infinite; }
+  &.ball-2 { animation: swing .5s ease-in-out infinite; animation-delay: .6s; }
+  &.ball-3 { animation: swing .5s ease-in-out infinite; animation-delay: .7s; }
+}

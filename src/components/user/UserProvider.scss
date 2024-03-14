@@ -1,0 +1,52 @@
+@import "src/scss/custom";
+
+.user-profil {
+  &-content {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-gap: 20px;
+
+    @include responsive('xl') {
+      margin-top: 45px;
+    }
+
+    &-column {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+
+      & > div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 2px;
+        background: #FBFBFB;
+        padding: 30px;
+
+        @include responsive('xl') {
+          padding: 35px;
+        }
+      }
+    }
+  }
+
+  &-detail {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+
+    & > div {
+      width: 100%;
+      height: 200px;
+
+      @include responsive('xl') {
+        height: 250px;
+      }
+    }
+  }
+}

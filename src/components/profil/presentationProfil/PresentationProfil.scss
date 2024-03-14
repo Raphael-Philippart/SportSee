@@ -1,0 +1,18 @@
+@import "src/scss/custom";
+
+.presentation-profil {
+  &-infos {
+    margin-bottom: 10px;
+    font-weight: bold;
+
+    @include custom-font('Roboto-Regular', black, 30px, 1.5);
+    @include responsive('xl') {
+      margin-bottom: 15px;
+      @include custom-font('Roboto-Regular', black, 48px, 1.6);
+    }
+
+    & span {
+      color: #FF0000;
+    }
+  }
+}

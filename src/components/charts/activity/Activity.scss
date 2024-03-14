@@ -1,0 +1,51 @@
+@import "src/scss/custom";
+
+.activity {
+  height: 350px;
+  padding: 10px 10px 10px 30px;
+
+  @include responsive('xl') {
+    height: 350px;
+  }
+
+  &-legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > div:first-child {
+      font-weight: 600;
+    }
+
+    & > div:last-child {
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    &-icon-1 {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #282D30;
+    }
+    &-icon-2 {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #E60000;
+    }
+  }
+
+  &-tooltip {
+    padding: 20px 10px;
+    color: white;
+    background: #E60000;
+  }
+}

@@ -1,0 +1,37 @@
+@import 'variables';
+
+@mixin font-import($font-name, $font-path, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: $font-name;
+    src: url('#{$font-path}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@mixin default-font($font-family, $fontSize: 14px, $lineHeight: 1.5) {
+  font-family: $font-family, sans-serif;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  color: black;
+}
+
+@mixin custom-font($font-family, $color, $fontSize: 14px, $lineHeight: 1.5) {
+  font-family: $font-family, sans-serif;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  color: $color;
+}
+
+@mixin responsive($breakpoint) {
+  // Verify if breakpoint exists
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Create the @media query with the proper breakpoint
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    // Warns {Debug} if the breakpoint given as a parameter doesn't exist
+    @warn 'Unknown breakpoint: #{$breakpoint}.';
+  }
+}

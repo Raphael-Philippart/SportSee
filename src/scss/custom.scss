@@ -1,0 +1,33 @@
+@import "mixins";
+
+*, :before, :after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@include font-import('Roboto-Regular', './fonts/roboto/Roboto-Regular', 400, italic);
+@include font-import('Roboto-Bold', './fonts/roboto/Roboto-Bold', 600, bold);
+
+.layout {
+  display: flex;
+
+  @include custom-font('Roboto-Regular', black, 14px, 1.2);
+  @include responsive('xl') {
+    @include custom-font('Roboto-Regular', black, 16px, 1.4);
+  }
+}
+
+.main {
+  width: 100%;
+  padding: 15px 30px;
+
+  @include responsive('xl') {
+    padding: 20px 60px;
+  }
+}
+
+.bg-content {
+  background: #FBFBFB;
+  border-radius: 5px;
+}

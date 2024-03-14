@@ -1,0 +1,26 @@
+@import "src/scss/custom";
+
+.Menu {
+  height: 60px;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  @include custom-font('Roboto-Regular', white, 14px, 1.5);
+  @include responsive('xl') {
+    height: 91px;
+    @include custom-font('Roboto-Regular', white, 18px, 1.6);
+  }
+
+  & > ul {
+    margin-left: 80px;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    gap: 80px;
+
+    @include responsive('xl') {
+      gap: 110px;
+    }
+  }
+}
