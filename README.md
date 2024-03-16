@@ -25,7 +25,7 @@ yarn install or npm install
 ```
 3. Start Production
 ```shell
-yarn start npm start
+yarn start or npm start
 ```
 ## Technologies
 - [React](https://reactjs.org) - [React Router](https://reactrouter.com)
