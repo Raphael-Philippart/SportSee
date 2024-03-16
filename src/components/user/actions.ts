@@ -1,11 +1,18 @@
-//'use server'
+'use server'
 
 import {
   TActivity,
   TDataAverageSessions,
   TPerformance,
-  TUserInformation
+  TUserInformation,
 } from '../../types/types'
+import users from '../../mock/users'
+import activity from '../../mock/activity'
+import average_sessions from '../../mock/average-sessions'
+import performance from '../../mock/performance'
+
+const host = process.env.REACT_APP_API_HOST
+const mocked = process.env.REACT_APP_MOCKED === 'true'
 
 /**
  * Fetches the user's information from API.
@@ -15,7 +22,8 @@ import {
  */
 export const getInformation = async (userId: string): Promise<TUserInformation | undefined> => {
   try {
-    const response = await fetch(`http://localhost:3000/user/${userId}`)
+    if(mocked) return users
+    const response = await fetch(`${host}/user/${userId}`)
     const data = await response.json()
     return data.data
   } catch (error) {
@@ -32,7 +40,8 @@ export const getInformation = async (userId: string): Promise<TUserInformation |
  */
 export const getActivity = async (userId: string): Promise<TActivity | undefined> => {
   try {
-    const response = await fetch(`http://localhost:3000/user/${userId}/activity`)
+    if(mocked) return activity
+    const response = await fetch(`${host}/user/${userId}/activity`)
     const data = await response.json()
     return data.data
   } catch (error) {
@@ -48,7 +57,8 @@ export const getActivity = async (userId: string): Promise<TActivity | undefined
  */
 export const getAverageSessions = async (userId: string): Promise<TDataAverageSessions | undefined> => {
   try {
-    const response = await fetch(`http://localhost:3000/user/${userId}/average-sessions`)
+    if(mocked) return average_sessions
+    const response = await fetch(`${host}/user/${userId}/average-sessions`)
     const data = await response.json()
     return data.data
   } catch (error) {
@@ -64,7 +74,8 @@ export const getAverageSessions = async (userId: string): Promise<TDataAverageSe
  */
 export const getPerformance = async (userId: string): Promise<TPerformance | undefined> => {
   try {
-    const response = await fetch(`http://localhost:3000/user/${userId}/performance`)
+    if (mocked) return performance
+    const response = await fetch(`${host}/user/${userId}/performance`)
     const data = await response.json()
     return data.data
   } catch (error) {

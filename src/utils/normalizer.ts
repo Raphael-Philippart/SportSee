@@ -1,4 +1,4 @@
-import { TDataPerformanceItem, TPerformance, TPerformanceFrench } from '../types/types'
+import { TDataPerformanceItem, TPerformance } from '../types/types'
 
 /**
  * The object to map kind numbers to their French string representation
@@ -30,7 +30,7 @@ const normalizeDataItem = ({ kind, value }: TDataPerformanceItem): any => {
  * Normalize a data array by normalizing each item with normalizeDataItem
  *
  * @param {TPerformance | undefined} data - The array of data items to normalize
- * @returns {TPerformanceFrench[] | undefined} The normalized data array
+ * @returns {TPerformance[] | undefined} The normalized data array
  */
-export const normalizeDataPerformance = (data: TPerformance | undefined): TPerformanceFrench[] | undefined =>
+export const normalizeDataPerformance = (data: TPerformance | undefined): TPerformance[] | undefined =>
   data!.data.map(normalizeDataItem)

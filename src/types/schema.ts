@@ -139,33 +139,12 @@ const DataPerformanceItemSchema = z.object({
  * @property {z.ZodString} 6 - Represents "intensity".
  */
 const kindPerformanceSchema = z.object({
-  1: z.literal('cardio'),
-  2: z.literal('energy'),
-  3: z.literal('endurance'),
-  4: z.literal('strength'),
-  5: z.literal('speed'),
-  6: z.literal('intensity'),
-})
-
-/**
- * Defines a schema for the kind object that holds the different kind types.
- *
- * @typedef {Object} kindPerformanceFrenchSchema
- * @name kindPerformanceSchema
- * @property {z.ZodString} 1 - Represents "cardio".
- * @property {z.ZodString} 2 - Represents "energy".
- * @property {z.ZodString} 3 - Represents "endurance".
- * @property {z.ZodString} 4 - Represents "strength".
- * @property {z.ZodString} 5 - Represents "speed".
- * @property {z.ZodString} 6 - Represents "intensity".
- */
-const kindPerformanceFrenchSchema = z.object({
-  1: z.literal('cardio'),
-  2: z.literal('énergie'),
-  3: z.literal('endurance'),
-  4: z.literal('force'),
-  5: z.literal('vitesse'),
-  6: z.literal('intensité'),
+  1: z.string(),
+  2: z.string(),
+  3: z.string(),
+  4: z.string(),
+  5: z.string(),
+  6: z.string(),
 })
 
 /**
@@ -183,27 +162,11 @@ const PerformanceSchema = z.object({
   data: z.array(DataPerformanceItemSchema),
 })
 
-/**
- * Main schema that defines the structure of the primary object.
- *
- * @typedef {Object} PerformanceFrenchSchema
- * @name PerformanceFrenchSchema
- * @property {z.ZodNumber} userId - Unique identifier for the user.
- * @property {z.ZodObject} kind - A set of different kind types.
- * @property {z.ZodArray} data - An array of data items.
- */
-const PerformanceFrenchSchema = z.object({
-  userId: z.number(),
-  kind: kindPerformanceFrenchSchema,
-  data: z.array(DataPerformanceItemSchema),
-})
-
 export {
   UserInformationSchema,
   ActivitySchema,
   KeyDataSchema,
   AverageSessionsSchema,
   PerformanceSchema,
-  PerformanceFrenchSchema,
   DataPerformanceItemSchema
 }

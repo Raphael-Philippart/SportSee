@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { TActivity, TDataAverageSessions, TPerformanceFrench, TUserInformation } from '../../types/types'
+import { TActivity, TDataAverageSessions, TPerformance, TUserInformation } from '../../types/types'
 import { getActivity, getAverageSessions, getInformation, getPerformance } from './actions'
 import { normalizeDataPerformance } from '../../utils/normalizer'
 import NewtonPendulum from '../pendulum/Pendulum'
@@ -21,7 +21,7 @@ const UserProvider: FC = () => {
   const [userAverageSessions, setAverageSessions]
     = useState<TDataAverageSessions | undefined>(undefined)
   const [userPerformance, setPerformance]
-    = useState<TPerformanceFrench[] | undefined>(undefined)
+    = useState<TPerformance[] | undefined>(undefined)
 
   useEffect(() => {
     async function fetchUser() {
@@ -29,7 +29,6 @@ const UserProvider: FC = () => {
       // we set the user here anyway,
       // because if the user is false it means it comes from the catch, the api does not respond
       setUserData(userData)
-
       if (userData) {
         const activityData = await getActivity(userId!)
         const userAverageSessions = await getAverageSessions(userId!)

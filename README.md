@@ -1,23 +1,31 @@
 # SportSee
-Ce projet est un développé pour le parcours OpenClassRooms :
-- Développez un tableau de bord d'analytics avec React
-## Fonctionnalités
-- Profil
-  - Graphique des performances sportive de l'utilisateur.
+This project is developed for the OpenClassRooms course:
+- Develop an analytics dashboard with React
+
+## Features
+- Profile
+  - Chart of the user's sport performance.
+
+## Set API Host
+```shell
+REACT_APP_API_HOST=
+```
+To launch the app with mocked data and not from the API
+```shell
+REACT_APP_MOCKED=true
+```
 ## Installation
-1. Cloner le dépôt :
+1. Clone the repository:
 ```shell
 git clone https://github.com/Raphael-Philippart/SportSee
 ```
-2. Installer les dépendances :
+2. Install the dependencies:
 ```shell
-yarn install
-npm install
+yarn install or npm install
 ```
-3. Mise en Production
+3. Start Production
 ```shell
-yarn start
-npm start
+yarn start npm start
 ```
 ## Technologies
 - [React](https://reactjs.org) - [React Router](https://reactrouter.com)

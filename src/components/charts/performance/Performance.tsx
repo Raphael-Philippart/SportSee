@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { TPerformanceFrench } from '../../../types/types'
+import { TPerformance } from '../../../types/types'
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -10,7 +10,7 @@ import {
 import './Performance.scss'
 
 interface IPerformanceProps {
-  intensity: TPerformanceFrench[]
+  intensity: TPerformance[]
 }
 
 const Performance: FC<IPerformanceProps> = ({ intensity }: IPerformanceProps) =>
