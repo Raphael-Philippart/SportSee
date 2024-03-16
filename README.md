@@ -6,13 +6,17 @@ This project is developed for the OpenClassRooms course:
 - Profile
   - Chart of the user's sport performance.
 
+To launch the application with mocked data and not from the API, 
+
+set `REACT_APP_MOCKED` to `true` ( default )
+
+If you want to use the API, set `REACT_APP_MOCKED` to `false`.
+```shell
+REACT_APP_MOCKED=false
+```
 ## Set API Host
 ```shell
 REACT_APP_API_HOST=
-```
-To launch the app with mocked data and not from the API
-```shell
-REACT_APP_MOCKED=true
 ```
 ## Installation
 1. Clone the repository:
