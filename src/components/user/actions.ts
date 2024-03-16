@@ -1,4 +1,4 @@
-'use server'
+//'use server'
 
 import {
   TActivity,
@@ -19,7 +19,8 @@ export const getInformation = async (userId: string): Promise<TUserInformation |
     const data = await response.json()
     return data.data
   } catch (error) {
-    console.error(`Error: ${error}`)
+    //console.error(`Error OK: ${error}`)
+    return false
   }
 }
 
@@ -35,7 +36,7 @@ export const getActivity = async (userId: string): Promise<TActivity | undefined
     const data = await response.json()
     return data.data
   } catch (error) {
-    console.error(`Error: ${error}`)
+    //console.error(`Error: ${error}`)
   }
 }
 
@@ -51,7 +52,7 @@ export const getAverageSessions = async (userId: string): Promise<TDataAverageSe
     const data = await response.json()
     return data.data
   } catch (error) {
-    console.error(`Error: ${error}`)
+    //console.error(`Error: ${error}`)
   }
 }
 
@@ -67,6 +68,6 @@ export const getPerformance = async (userId: string): Promise<TPerformance | und
     const data = await response.json()
     return data.data
   } catch (error) {
-    console.error(`Error: ${error}`)
+    //console.error(`Error: ${error}`)
   }
 }

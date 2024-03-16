@@ -15,7 +15,7 @@ import './UserProvider.scss'
 const UserProvider: FC = () => {
   const { userId } = useParams()
   const [userData, setUserData]
-    = useState<TUserInformation | undefined>(undefined)
+    = useState<TUserInformation | undefined | boolean>(undefined)
   const [userSessionsData, setSessionsData]
     = useState<TActivity | undefined>(undefined)
   const [userAverageSessions, setAverageSessions]
@@ -26,13 +26,15 @@ const UserProvider: FC = () => {
   useEffect(() => {
     async function fetchUser() {
       const userData = await getInformation(userId!)
+      // we set the user here anyway,
+      // because if the user is false it means it comes from the catch, the api does not respond
+      setUserData(userData)
 
       if (userData) {
         const activityData = await getActivity(userId!)
         const userAverageSessions = await getAverageSessions(userId!)
         const userPerformance = await getPerformance(userId!)
 
-        setUserData(userData)
         setSessionsData(activityData)
         setAverageSessions(userAverageSessions)
         setPerformance(normalizeDataPerformance(userPerformance))
@@ -42,8 +44,9 @@ const UserProvider: FC = () => {
     if (userId) fetchUser().then()
   }, [userId])
 
-  if (!userId) return <div className="pendulum-container">Désolé, aucun profil n'a été trouvé.</div>
-  if (userId && !userData) return <div className="pendulum-container"><NewtonPendulum /></div>
+  if (!userId) return <div className="pendulum-container">Désolé, aucun Id de profil n'a été trouvé.</div>
+  if (userData === false) return <div className="pendulum-container">Désolé, notre API ne répond pas !!</div>
+  if (userId && userData === undefined) return <div className="pendulum-container"><NewtonPendulum /></div>
 
   return <div className="user-profil">
     {userData && userSessionsData && userAverageSessions && userPerformance && <>
