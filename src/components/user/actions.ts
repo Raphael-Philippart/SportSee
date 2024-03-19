@@ -22,7 +22,7 @@ const mocked = process.env.REACT_APP_MOCKED === 'true'
  */
 export const getInformation = async (userId: string): Promise<TUserInformation | undefined> => {
   try {
-    if(mocked) return users
+    if(mocked) return users.find(user => user.id === parseInt(userId))
     const response = await fetch(`${host}/user/${userId}`)
     const data = await response.json()
     return data.data
@@ -40,7 +40,7 @@ export const getInformation = async (userId: string): Promise<TUserInformation |
  */
 export const getActivity = async (userId: string): Promise<TActivity | undefined> => {
   try {
-    if(mocked) return activity
+    if(mocked) return activity.find(user => user.userId === parseInt(userId))
     const response = await fetch(`${host}/user/${userId}/activity`)
     const data = await response.json()
     return data.data
@@ -57,7 +57,7 @@ export const getActivity = async (userId: string): Promise<TActivity | undefined
  */
 export const getAverageSessions = async (userId: string): Promise<TDataAverageSessions | undefined> => {
   try {
-    if(mocked) return average_sessions
+    if(mocked) return average_sessions.find(user => user.userId === parseInt(userId))
     const response = await fetch(`${host}/user/${userId}/average-sessions`)
     const data = await response.json()
     return data.data
@@ -74,7 +74,7 @@ export const getAverageSessions = async (userId: string): Promise<TDataAverageSe
  */
 export const getPerformance = async (userId: string): Promise<TPerformance | undefined> => {
   try {
-    if (mocked) return performance
+    if (mocked) return performance.find(user => user.userId === parseInt(userId))
     const response = await fetch(`${host}/user/${userId}/performance`)
     const data = await response.json()
     return data.data
